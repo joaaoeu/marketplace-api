@@ -1,0 +1,95 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2019-03-16T21:44:06.178Z",
+	"__export_source": "insomnia.desktop.app:v6.3.2",
+	"resources": [
+		{
+			"_id": "wrk_acc3b302c81a45dcaad8aae0816190c5",
+			"created": 1552771442183,
+			"description": "A Marketplace REST Api developed in NodeJS",
+			"modified": 1552771463308,
+			"name": "marketplace-api",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_97987f75cad348e5a99816878308617a",
+			"color": null,
+			"created": 1552771442198,
+			"data": {},
+			"isPrivate": false,
+			"metaSortKey": 1552771442198,
+			"modified": 1552771638347,
+			"name": "New Environment",
+			"parentId": "wrk_acc3b302c81a45dcaad8aae0816190c5",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_69c577792114410eb94c894f4d6c303b",
+			"cookies": [],
+			"created": 1552771442254,
+			"modified": 1552771442254,
+			"name": "Default Jar",
+			"parentId": "wrk_acc3b302c81a45dcaad8aae0816190c5",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_caacd883664145c28f5c503991956fe7",
+			"created": 1552771909315,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1552771909315,
+			"modified": 1552771909315,
+			"name": "Users",
+			"parentId": "wrk_acc3b302c81a45dcaad8aae0816190c5",
+			"_type": "request_group"
+		},
+		{
+			"_id": "env_fb5a7a4f865147a3badac087870e17a9",
+			"color": "#00f900",
+			"created": 1552771583891,
+			"data": {
+				"BASE_URL": "http://localhost:3000"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1552771583891,
+			"modified": 1552772480392,
+			"name": "development",
+			"parentId": "env_97987f75cad348e5a99816878308617a",
+			"_type": "environment"
+		},
+		{
+			"_id": "req_c559810ed40a41dbaae1a07c382d3032",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n  \"name\": \"João Vitor Brandão\",\n  \"email\": \"hello@joaao.eu\",\n  \"password\": \"123456\"\n}"
+			},
+			"created": 1552771965707,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_40ac5760b9784b028ba8bb8794c5fd21",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1552771965707,
+			"method": "POST",
+			"modified": 1552772438742,
+			"name": "Create",
+			"parameters": [],
+			"parentId": "fld_caacd883664145c28f5c503991956fe7",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ BASE_URL  }}/users",
+			"_type": "request"
+		}
+	]
+}
