@@ -1,7 +1,7 @@
 const User = require('../models/User')
 
 class AuthController {
-  async store (req, res) {
+  async authenticate (req, res) {
     const { email, password } = req.body
 
     const user = await User.findOne({ email })

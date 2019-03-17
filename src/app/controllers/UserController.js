@@ -1,7 +1,7 @@
 const User = require('../models/User')
 
 class UserController {
-  async store (req, res) {
+  async create (req, res) {
     const { email } = req.body
 
     if (await User.findOne({ email })) {
