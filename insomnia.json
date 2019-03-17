@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2019-03-17T05:33:02.616Z",
+	"__export_date": "2019-03-17T06:39:13.760Z",
 	"__export_source": "insomnia.desktop.app:v6.3.2",
 	"resources": [
 		{
@@ -66,6 +66,17 @@
 			"metaSortKey": -1552771909265,
 			"modified": 1552790585544,
 			"name": "Ads",
+			"parentId": "wrk_acc3b302c81a45dcaad8aae0816190c5",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_9c39a83c7ad9491b9d7dcccc03addde3",
+			"created": 1552804645428,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1552804645428,
+			"modified": 1552804645428,
+			"name": "Purchases",
 			"parentId": "wrk_acc3b302c81a45dcaad8aae0816190c5",
 			"_type": "request_group"
 		},
@@ -293,6 +304,41 @@
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
 			"url": "{{ BASE_URL  }}/ads/5c8dd6c1406bff71bc613935",
+			"_type": "request"
+		},
+		{
+			"_id": "req_bcfab17ab47a4c90b5ca8184758cd876",
+			"authentication": {
+				"token": "{{ token  }}",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n  \"ad\": \"5c8db75daf943e698707b7ce\",\n  \"message\": \"Message\"\n}"
+			},
+			"created": 1552804656744,
+			"description": "**[POST]** /purchases\n--\n**Response:** Status 204 No Content\n\nRequest Body Model\n--\n```json\n{\n  \"ad\": \"5c8db75daf943e698707b7ce\",\n  \"message\": \"Message\"\n}\n```\n\nResponse Payload Model\n--\n*No body returned for response*",
+			"headers": [
+				{
+					"id": "pair_ff01f4e49129465081c8fc6a9c3d1119",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1552804656744,
+			"method": "POST",
+			"modified": 1552804736352,
+			"name": "[PRIVATE] Create",
+			"parameters": [],
+			"parentId": "fld_9c39a83c7ad9491b9d7dcccc03addde3",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ BASE_URL  }}/purchases",
 			"_type": "request"
 		}
 	]
