@@ -3,26 +3,42 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const authConfig = require('../../config/auth')
 
-const UserSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
+const UserSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true
+    },
+    password: {
+      type: String,
+      required: true
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now
+    }
   },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    lowercase: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
+  {
+    toObject: {
+      transform: function (doc, user) {
+        delete user.password
+        delete user.__v
+      }
+    },
+    toJSON: {
+      transform: function (doc, user) {
+        delete user.password
+        delete user.__v
+      }
+    }
   }
-})
+)
 
 UserSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next()
@@ -40,15 +56,6 @@ UserSchema.statics = {
     return jwt.sign({ id }, authConfig.secret, {
       expiresIn: authConfig.ttl
     })
-  }
-}
-
-UserSchema.options.toJSON = {
-  transform: function (userDocument) {
-    const user = userDocument.toJSON({ transform: false })
-    delete user.password
-    delete user.__v
-    return user
   }
 }
 
