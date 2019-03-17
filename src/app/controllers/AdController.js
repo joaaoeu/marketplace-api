@@ -11,8 +11,8 @@ class AdController {
 
     const result = await Ad.paginate(filters, {
       populate: ['author'],
-      page: parseInt(req.query.page) || 1,
-      limit: parseInt(req.query.pageSize) || 10,
+      page: req.query.page || 1,
+      limit: req.query.pageSize || 10,
       sort: '-createdAt'
     })
 
