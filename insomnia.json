@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2019-03-17T00:45:41.474Z",
+	"__export_date": "2019-03-17T01:12:23.273Z",
 	"__export_source": "insomnia.desktop.app:v6.3.2",
 	"resources": [
 		{
@@ -17,10 +17,12 @@
 			"_id": "env_97987f75cad348e5a99816878308617a",
 			"color": null,
 			"created": 1552771442198,
-			"data": {},
+			"data": {
+				"token": "PAST_TOKEN_HERE"
+			},
 			"isPrivate": false,
 			"metaSortKey": 1552771442198,
-			"modified": 1552771638347,
+			"modified": 1552785126370,
 			"name": "New Environment",
 			"parentId": "wrk_acc3b302c81a45dcaad8aae0816190c5",
 			"_type": "environment"
