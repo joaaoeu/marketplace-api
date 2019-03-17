@@ -1,11 +1,9 @@
 const express = require('express')
+const controllers = require('./app/controllers')
 
 const routes = express.Router()
 
-const AuthController = require('./app/controllers/AuthController')
-const UserController = require('./app/controllers/UserController')
-
-routes.post('/auth', AuthController.store)
-routes.post('/users', UserController.store)
+routes.post('/auth', controllers.AuthController.store)
+routes.post('/users', controllers.UserController.store)
 
 module.exports = routes

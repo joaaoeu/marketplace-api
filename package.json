@@ -44,6 +44,7 @@
     "bcryptjs": "^2.4.3",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.4.19"
+    "mongoose": "^5.4.19",
+    "require-dir": "^1.2.0"
   }
 }
