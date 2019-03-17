@@ -2,16 +2,17 @@ const Ad = require('../models/Ad')
 
 class AdController {
   async index (req, res) {
-    const ads = await Ad.paginate(
+    const result = await Ad.paginate(
       {},
       {
         populate: ['author'],
-        page: parseInt(req.query.page) || 1,
-        limit: parseInt(req.query.pageSize) || 10,
         sort: '-createdAt'
       }
     )
-    return res.status(200).json(ads)
+
+    delete Object.assign(result, { ads: result.docs }).docs
+
+    return res.status(200).json(result)
   }
 
   async show (req, res) {
