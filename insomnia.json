@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2019-03-17T05:12:48.946Z",
+	"__export_date": "2019-03-17T05:33:02.616Z",
 	"__export_source": "insomnia.desktop.app:v6.3.2",
 	"resources": [
 		{
@@ -155,12 +155,12 @@
 			},
 			"body": {},
 			"created": 1552790609352,
-			"description": "**[GET]** /ads\n--\n**Response:** Status 200 OK\n\nQuery Params Defaults\n--\n**page:** *1*  \n**pageSize:** *10*\n\nQuery Params Models\n--\n`?page=2`  \n`?pageSize=20`  \n`?page=2&pageSize=20`\n\nResponse Model\n--\n```json\n{\n  \"total\": 1,\n  \"limit\": 10,\n  \"offset\": 0,\n  \"page\": 1,\n  \"pages\": 1,\n  \"ads\": [\n    {\n      \"_id\": \"5c8db75daf943e698707b7ce\",\n      \"title\": \"Title\",\n      \"description\": \"Description\",\n      \"price\": 0,\n      \"author\": {\n        \"_id\": \"5c8d765dc7ab644056b42cbd\",\n        \"name\": \"Name\",\n        \"email\": \"email@example.com\",\n        \"createdAt\": \"2019-03-16T22:19:09.041Z\"\n      },\n      \"createdAt\": \"2019-03-17T02:56:29.367Z\"\n    }\n  ]\n}\n```",
+			"description": "**[GET]** /ads\n--\n**Response:** Status 200 OK\n\nQuery Params Defaults\n--\n**page:** *1*  \n**pageSize:** *10*\n**minPrice:** null\n**maxPrice:** null\n**title:** null\n\nQuery Params Models\n--\n`?page=2`  \n`?pageSize=20`  \n`?page=2&pageSize=20`  \n`?minPrice=50`  \n`?maxPrice=200`  \n`?title=title%20query%20search`\n\nResponse Model\n--\n```json\n{\n  \"total\": 1,\n  \"limit\": 10,\n  \"offset\": 0,\n  \"page\": 1,\n  \"pages\": 1,\n  \"ads\": [\n    {\n      \"_id\": \"5c8db75daf943e698707b7ce\",\n      \"title\": \"Title\",\n      \"description\": \"Description\",\n      \"price\": 0,\n      \"author\": {\n        \"_id\": \"5c8d765dc7ab644056b42cbd\",\n        \"name\": \"Name\",\n        \"email\": \"email@example.com\",\n        \"createdAt\": \"2019-03-16T22:19:09.041Z\"\n      },\n      \"createdAt\": \"2019-03-17T02:56:29.367Z\"\n    }\n  ]\n}\n```",
 			"headers": [],
 			"isPrivate": false,
 			"metaSortKey": -1552790690924,
 			"method": "GET",
-			"modified": 1552799087684,
+			"modified": 1552800628149,
 			"name": "[PRIVATE] List",
 			"parameters": [],
 			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",

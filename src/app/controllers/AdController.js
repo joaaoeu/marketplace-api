@@ -2,13 +2,19 @@ const Ad = require('../models/Ad')
 
 class AdController {
   async list (req, res) {
-    const result = await Ad.paginate(
-      {},
-      {
-        populate: ['author'],
-        sort: '-createdAt'
-      }
-    )
+    const filters = {}
+
+    if (req.query.minPrice || req.query.maxPrice) filters.price = {}
+    if (req.query.minPrice) filters.price.$gte = req.query.minPrice
+    if (req.query.maxPrice) filters.price.$lte = req.query.maxPrice
+    if (req.query.title) filters.title = new RegExp(req.query.title, 'i')
+
+    const result = await Ad.paginate(filters, {
+      populate: ['author'],
+      page: parseInt(req.query.page) || 1,
+      limit: parseInt(req.query.pageSize) || 10,
+      sort: '-createdAt'
+    })
 
     delete Object.assign(result, { ads: result.docs }).docs
 
