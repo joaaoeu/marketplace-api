@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2019-03-17T02:51:04.439Z",
+	"__export_date": "2019-03-17T05:12:48.946Z",
 	"__export_source": "insomnia.desktop.app:v6.3.2",
 	"resources": [
 		{
@@ -18,11 +18,11 @@
 			"color": null,
 			"created": 1552771442198,
 			"data": {
-				"token": "PAST_TOKEN_HERE"
+				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjOGRkNWIyNDA2YmZmNzFiYzYxMzkzNCIsImlhdCI6MTU1Mjc5OTIyMiwiZXhwIjoxNTUyODg1NjIyfQ.zM4a5H3IittO8Wf3tBw9-rgylpWgCgMZBGItOHE_VYs"
 			},
 			"isPrivate": false,
 			"metaSortKey": 1552771442198,
-			"modified": 1552791037967,
+			"modified": 1552799304505,
 			"name": "New Environment",
 			"parentId": "wrk_acc3b302c81a45dcaad8aae0816190c5",
 			"_type": "environment"
@@ -88,10 +88,10 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n  \"name\": \"João Vitor Brandão\",\n  \"email\": \"hello+1@joaao.eu\",\n  \"password\": \"123456\"\n}"
+				"text": "{\n  \"name\": \"Name\",\n  \"email\": \"email@example.com\",\n  \"password\": \"password\"\n}"
 			},
 			"created": 1552771965707,
-			"description": "",
+			"description": "**[POST]** /users\n--\n**Response:** Status 201 Created\n\nRequest Body Model\n--\n```json\n{\n  \"name\": \"Name\",\n  \"email\": \"email@example.com\",\n  \"password\": \"password\"\n}\n```\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8dd5b2406bff71bc613934\",\n  \"name\": \"Name\",\n  \"email\": \"email@example.com\",\n  \"createdAt\": \"2019-03-17T05:05:54.051Z\"\n}\n```",
 			"headers": [
 				{
 					"id": "pair_40ac5760b9784b028ba8bb8794c5fd21",
@@ -102,8 +102,8 @@
 			"isPrivate": false,
 			"metaSortKey": -1552771965707,
 			"method": "POST",
-			"modified": 1552774746818,
-			"name": "Create",
+			"modified": 1552799162848,
+			"name": "[PUBLIC] Create",
 			"parameters": [],
 			"parentId": "fld_caacd883664145c28f5c503991956fe7",
 			"settingDisableRenderRequestBody": false,
@@ -120,10 +120,10 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n  \"email\": \"hello+1@joaao.eu\",\n  \"password\": \"123456\"\n}"
+				"text": "{\n  \"email\": \"email@example.com\",\n  \"password\": \"password\"\n}"
 			},
 			"created": 1552775959940,
-			"description": "",
+			"description": "**[POST]** /auth\n--\n**Response:** Status 200 OK\n\nRequest Body Model\n--\n```json\n{\n  \"email\": \"email@example.com\",\n  \"password\": \"password\"\n}\n```\n\nResponse Payload Model\n--\n```json\n{\n  \"user\": {\n    \"_id\": \"5c8dd5b2406bff71bc613934\",\n    \"name\": \"Name\",\n    \"email\": \"email@example.com\",\n    \"createdAt\": \"2019-03-17T05:05:54.051Z\"\n  },\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjV\n  jOGRkNWIyNDA2YmZmNzFiYzYxMzkzNCIsImlhdCI6MTU1Mjc5OTIyMiwiZ\n  XhwIjoxNTUyO Dg1NjIyfQ.zM4a5H3IittO8Wf3tBw9-rgylpWgCgMZBGI\n  tOHE_VYs\"\n}\n```",
 			"headers": [
 				{
 					"id": "pair_61a5bb0b94d643d99c0e6d6f83d0683e",
@@ -134,8 +134,8 @@
 			"isPrivate": false,
 			"metaSortKey": -1552775959940,
 			"method": "POST",
-			"modified": 1552786511374,
-			"name": "auth",
+			"modified": 1552799285191,
+			"name": "[PUBLIC] auth",
 			"parameters": [],
 			"parentId": "fld_01080a67bed649e4a5f1ab5aaaa6782f",
 			"settingDisableRenderRequestBody": false,
@@ -143,7 +143,7 @@
 			"settingMaxTimelineDataSize": 1000,
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
-			"settingStoreCookies": true,
+			"settingStoreCookies": false,
 			"url": "{{ BASE_URL  }}/auth",
 			"_type": "request"
 		},
@@ -155,13 +155,13 @@
 			},
 			"body": {},
 			"created": 1552790609352,
-			"description": "",
+			"description": "**[GET]** /ads\n--\n**Response:** Status 200 OK\n\nQuery Params Defaults\n--\n**page:** *1*  \n**pageSize:** *10*\n\nQuery Params Models\n--\n`?page=2`  \n`?pageSize=20`  \n`?page=2&pageSize=20`\n\nResponse Model\n--\n```json\n{\n  \"total\": 1,\n  \"limit\": 10,\n  \"offset\": 0,\n  \"page\": 1,\n  \"pages\": 1,\n  \"ads\": [\n    {\n      \"_id\": \"5c8db75daf943e698707b7ce\",\n      \"title\": \"Title\",\n      \"description\": \"Description\",\n      \"price\": 0,\n      \"author\": {\n        \"_id\": \"5c8d765dc7ab644056b42cbd\",\n        \"name\": \"Name\",\n        \"email\": \"email@example.com\",\n        \"createdAt\": \"2019-03-16T22:19:09.041Z\"\n      },\n      \"createdAt\": \"2019-03-17T02:56:29.367Z\"\n    }\n  ]\n}\n```",
 			"headers": [],
 			"isPrivate": false,
-			"metaSortKey": -1552790609352,
+			"metaSortKey": -1552790690924,
 			"method": "GET",
-			"modified": 1552790654506,
-			"name": "Index",
+			"modified": 1552799087684,
+			"name": "[PRIVATE] List",
 			"parameters": [],
 			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",
 			"settingDisableRenderRequestBody": false,
@@ -181,13 +181,13 @@
 			},
 			"body": {},
 			"created": 1552790690874,
-			"description": "",
+			"description": "**[GET]** /ads/:id\n--\n**Response:** Status 200 OK\n\nParams\n--\nSend the **Ad id** as param `/ads/:id`\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8dd6c1406bff71bc613935\",\n  \"title\": \"Title\",\n  \"description\": \"Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8dd5b2406bff71bc613934\",\n    \"name\": \"Name\",\n    \"email\": \"email@example.com\",\n    \"createdAt\": \"2019-03-17T05:05:54.051Z\"\n  },\n  \"createdAt\": \"2019-03-17T05:10:25.774Z\"\n}\n```",
 			"headers": [],
 			"isPrivate": false,
 			"metaSortKey": -1552790690874,
 			"method": "GET",
-			"modified": 1552790939444,
-			"name": "Show",
+			"modified": 1552799463845,
+			"name": "[PRIVATE] Show",
 			"parameters": [],
 			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",
 			"settingDisableRenderRequestBody": false,
@@ -196,7 +196,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ BASE_URL  }}/ads/:id",
+			"url": "{{ BASE_URL  }}/ads/5c8dd6c1406bff71bc613935",
 			"_type": "request"
 		},
 		{
@@ -210,7 +210,7 @@
 				"text": "{\n \"title\": \"Title\",\n \"description\": \"Description\",\n \"price\": 0\n}"
 			},
 			"created": 1552790738123,
-			"description": "",
+			"description": "**[POST]** /ads\n--\n**Response:** Status 201 Created\n\nRequest Body Model\n--\n```json\n{\n \"title\": \"Title\",\n \"description\": \"Description\",\n \"price\": 0\n}\n```\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8dd6c1406bff71bc613935\",\n  \"title\": \"Title\",\n  \"description\": \"Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8dd5b2406bff71bc613934\",\n    \"name\": \"Name\",\n    \"email\": \"email@example.com\",\n    \"createdAt\": \"2019-03-17T05:05:54.051Z\"\n  },\n  \"createdAt\": \"2019-03-17T05:10:25.774Z\"\n}\n```",
 			"headers": [
 				{
 					"id": "pair_01ab219db137434c9b804945d547e098",
@@ -221,8 +221,8 @@
 			"isPrivate": false,
 			"metaSortKey": -1552790650113,
 			"method": "POST",
-			"modified": 1552790998512,
-			"name": "Create",
+			"modified": 1552799435956,
+			"name": "[PRIVATE] Create",
 			"parameters": [],
 			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",
 			"settingDisableRenderRequestBody": false,
@@ -231,7 +231,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ BASE_URL  }}/ads/",
+			"url": "{{ BASE_URL  }}/ads",
 			"_type": "request"
 		},
 		{
@@ -242,10 +242,10 @@
 			},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n \"title\": \"Title\",\n \"description\": \"Description\",\n \"price\": 0\n}"
+				"text": "{\n \"title\": \"New Title\",\n \"description\": \"New Description\",\n \"price\": 0\n}"
 			},
 			"created": 1552790860129,
-			"description": "",
+			"description": "**[PUT]** /ads/:id\n--\n**Response:** Status 200 OK\n\nParams\n--\nSend the **Ad id** as param `/ads/:id`\n\nRequest Body Model\n--\n*You may send only what was modified*\n```json\n{\n \"title\": \"New Title\",\n \"description\": \"New Description\",\n \"price\": 0\n}\n```\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8dd6c1406bff71bc613935\",\n  \"title\": \"New Title\",\n  \"description\": \"New Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8dd5b2406bff71bc613934\",\n    \"name\": \"Name\",\n    \"email\": \"email@example.com\",\n    \"createdAt\": \"2019-03-17T05:05:54.051Z\"\n  },\n  \"createdAt\": \"2019-03-17T05:10:25.774Z\"\n}\n```",
 			"headers": [
 				{
 					"id": "pair_23030ef2a3c14a8f86845114aea8075a",
@@ -254,10 +254,10 @@
 				}
 			],
 			"isPrivate": false,
-			"metaSortKey": -1552790670493.5,
+			"metaSortKey": -1552790650088,
 			"method": "PUT",
-			"modified": 1552791001114,
-			"name": "Update",
+			"modified": 1552799491446,
+			"name": "[PRIVATE] Update",
 			"parameters": [],
 			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",
 			"settingDisableRenderRequestBody": false,
@@ -266,7 +266,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ BASE_URL  }}/ads/:id",
+			"url": "{{ BASE_URL  }}/ads/5c8dd6c1406bff71bc613935",
 			"_type": "request"
 		},
 		{
@@ -277,13 +277,13 @@
 			},
 			"body": {},
 			"created": 1552790923665,
-			"description": "",
+			"description": "**[DELETE]** /ads/:id\n--\n**Response:** Status 204 No Content\n\nParams\n--\nSend the **Ad id** as param `/ads/:id`\n\nRequest Body Model\n--\n*No body needed for request*\n\nResponse Payload Model\n--\n*No body returned for response*",
 			"headers": [],
 			"isPrivate": false,
-			"metaSortKey": -1552790680683.75,
+			"metaSortKey": -1552790650063,
 			"method": "DELETE",
-			"modified": 1552790951171,
-			"name": "Delete",
+			"modified": 1552799506943,
+			"name": "[PRIVATE] Delete",
 			"parameters": [],
 			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",
 			"settingDisableRenderRequestBody": false,
@@ -292,7 +292,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ BASE_URL  }}/ads/:id",
+			"url": "{{ BASE_URL  }}/ads/5c8dd6c1406bff71bc613935",
 			"_type": "request"
 		}
 	]
