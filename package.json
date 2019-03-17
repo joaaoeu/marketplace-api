@@ -43,6 +43,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.16.4",
+    "express-async-handler": "^1.1.4",
     "express-validation": "^1.0.2",
     "extend": ">=2.0.2",
     "joi": "^14.3.1",
@@ -52,6 +53,7 @@
     "mongoose-paginate": "^5.0.3",
     "nodemailer": "^5.1.1",
     "nodemailer-express-handlebars": "^3.0.0",
-    "require-dir": "^1.2.0"
+    "require-dir": "^1.2.0",
+    "youch": "^2.0.10"
   }
 }

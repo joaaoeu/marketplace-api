@@ -1,7 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
+
 const routes = require('./routes')
 const databaseConfig = require('./config/database')
+const middlewares = require('./app/middlewares')
 
 class App {
   constructor () {
@@ -11,6 +13,7 @@ class App {
     this.database()
     this.middlewares()
     this.routes()
+    this.exception()
   }
 
   database () {
@@ -26,6 +29,10 @@ class App {
 
   routes () {
     this.express.use(routes)
+  }
+
+  exception () {
+    this.express.use(middlewares.handleException(this.isDev))
   }
 }
 
