@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2019-03-17T19:06:08.880Z",
+	"__export_date": "2019-03-18T00:19:58.259Z",
 	"__export_source": "insomnia.desktop.app:v6.3.2",
 	"resources": [
 		{
@@ -18,11 +18,11 @@
 			"color": null,
 			"created": 1552771442198,
 			"data": {
-				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjOGRkNWIyNDA2YmZmNzFiYzYxMzkzNCIsImlhdCI6MTU1Mjc5OTIyMiwiZXhwIjoxNTUyODg1NjIyfQ.zM4a5H3IittO8Wf3tBw9-rgylpWgCgMZBGItOHE_VYs"
+				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjOGVkZmMyNjkyZmE1Yjc1MzM4MDgyMCIsImlhdCI6MTU1Mjg2NzQzMywiZXhwIjoxNTUyOTUzODMzfQ.ft5-pVBDXq0nUpiN3n1sTIvsDGt2RAMhV0boMSo3S00"
 			},
 			"isPrivate": false,
 			"metaSortKey": 1552771442198,
-			"modified": 1552799304505,
+			"modified": 1552867446459,
 			"name": "New Environment",
 			"parentId": "wrk_acc3b302c81a45dcaad8aae0816190c5",
 			"_type": "environment"
@@ -70,6 +70,17 @@
 			"_type": "request_group"
 		},
 		{
+			"_id": "fld_9c39a83c7ad9491b9d7dcccc03addde3",
+			"created": 1552804645428,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1552771909215,
+			"modified": 1552864765400,
+			"name": "Purchases",
+			"parentId": "wrk_acc3b302c81a45dcaad8aae0816190c5",
+			"_type": "request_group"
+		},
+		{
 			"_id": "env_fb5a7a4f865147a3badac087870e17a9",
 			"color": "#00f900",
 			"created": 1552771583891,
@@ -102,7 +113,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1552771965707,
 			"method": "POST",
-			"modified": 1552848480935,
+			"modified": 1552868385325,
 			"name": "[PUBLIC] Create",
 			"parameters": [],
 			"parentId": "fld_caacd883664145c28f5c503991956fe7",
@@ -134,8 +145,8 @@
 			"isPrivate": false,
 			"metaSortKey": -1552775959940,
 			"method": "POST",
-			"modified": 1552848533491,
-			"name": "[PUBLIC] auth",
+			"modified": 1552868371228,
+			"name": "[PUBLIC] Auth",
 			"parameters": [],
 			"parentId": "fld_01080a67bed649e4a5f1ab5aaaa6782f",
 			"settingDisableRenderRequestBody": false,
@@ -148,17 +159,6 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_9c39a83c7ad9491b9d7dcccc03addde3",
-			"created": 1552804645428,
-			"description": "",
-			"environment": {},
-			"metaSortKey": -1552790650013,
-			"modified": 1552848684315,
-			"name": "Purchases",
-			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",
-			"_type": "request_group"
-		},
-		{
 			"_id": "req_c230b6a22f994dfb99a63d11e23dcdb9",
 			"authentication": {
 				"token": "{{ token  }}",
@@ -166,12 +166,12 @@
 			},
 			"body": {},
 			"created": 1552790609352,
-			"description": "**[GET]** /ads\n--\n**Response:** Status 200 OK\n\nQuery Params\n--\n>**page (Number)**  \n>**required:** false  \n>**default:** 1  \n\n>**pageSize (Number)**  \n>**required:** false  \n>**default:** 10  \n\n>**minPrice (Number)**  \n>**required:** false  \n>**default:** null  \n\n>**maxPrice (Number)**  \n>**required:** false  \n>**default:** null  \n\n>**title (String)**  \n>**required:** false  \n>**default:** null  \n\nResponse Model\n--\n```json\n{\n  \"total\": 1,\n  \"limit\": 10,\n  \"page\": 1,\n  \"pages\": 1,\n  \"ads\": [\n    {\n      \"_id\": \"5c8db75daf943e698707b7ce\",\n      \"title\": \"Title\",\n      \"description\": \"Description\",\n      \"price\": 0,\n      \"author\": {\n        \"_id\": \"5c8d765dc7ab644056b42cbd\",\n        \"name\": \"Name\",\n        \"email\": \"email@example.com\",\n        \"createdAt\": \"2019-03-16T22:19:09.041Z\"\n      },\n      \"createdAt\": \"2019-03-17T02:56:29.367Z\"\n    }\n  ]\n}\n```",
+			"description": "**[GET]** /ads\n--\n**Response:** Status 200 OK\n\nQuery Params\n--\n>**includePurchased (Boolean)**  \n>**required:** false  \n>**default:** false  \n\n>**page (Number)**  \n>**required:** false  \n>**default:** 1  \n\n>**pageSize (Number)**  \n>**required:** false  \n>**default:** 10  \n\n>**minPrice (Number)**  \n>**required:** false  \n>**default:** null  \n\n>**maxPrice (Number)**  \n>**required:** false  \n>**default:** null  \n\n>**title (String)**  \n>**required:** false  \n>**default:** null  \n\nResponse Model\n--\n```json\n{\n  \"total\": 1,\n  \"limit\": 10,\n  \"page\": 1,\n  \"pages\": 1,\n  \"ads\": [\n    {\n      \"_id\": \"5c8edfe8692fa5b753380822\",\n      \"title\": \"Title\",\n      \"description\": \"Description\",\n      \"price\": 0,\n      \"author\": {\n        \"_id\": \"5c8edfc2692fa5b753380820\",\n        \"name\": \"Ad Author name\",\n        \"email\": \"email1@example.com\",\n        \"createdAt\": \"2019-03-18T00:01:06.264Z\"\n      },\n      \"createdAt\": \"2019-03-18T00:01:44.569Z\",\n      \"purchasedBy\": {\n        \"_id\": \"5c8ee053692fa5b753380823\",\n        \"ad\": \"5c8edfe8692fa5b753380822\",\n        \"message\": \"Message\",\n        \"author\": {\n          \"_id\": \"5c8edfcd692fa5b753380821\",\n          \"name\": \"Purchase Author Name\",\n          \"email\": \"email2@example.com\",\n          \"createdAt\": \"2019-03-18T00:01:17.080Z\"\n        },\n        \"createdAt\": \"2019-03-18T00:03:31.824Z\"\n      }\n    }\n  ]\n}\n```",
 			"headers": [],
 			"isPrivate": false,
 			"metaSortKey": -1552790690924,
 			"method": "GET",
-			"modified": 1552848071619,
+			"modified": 1552867861942,
 			"name": "[PRIVATE] List",
 			"parameters": [],
 			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",
@@ -181,7 +181,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ BASE_URL  }}/ads",
+			"url": "{{ BASE_URL  }}/ads?includePurchased=true",
 			"_type": "request"
 		},
 		{
@@ -192,12 +192,12 @@
 			},
 			"body": {},
 			"created": 1552790690874,
-			"description": "**[GET]** /ads/:id\n--\n**Response:** Status 200 OK\n\nParams\n--\n>**id (String | ObjectId)**  \n>**required:** true  \n>**description:** the Ad id  \n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8dd6c1406bff71bc613935\",\n  \"title\": \"Title\",\n  \"description\": \"Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8dd5b2406bff71bc613934\",\n    \"name\": \"Name\",\n    \"email\": \"email@example.com\",\n    \"createdAt\": \"2019-03-17T05:05:54.051Z\"\n  },\n  \"createdAt\": \"2019-03-17T05:10:25.774Z\"\n}\n```",
+			"description": "**[GET]** /ads/:id\n--\n**Response:** Status 200 OK\n\nParams\n--\n>**id (String | ObjectId)**  \n>**required:** true  \n>**description:** the Ad id  \n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8edfe8692fa5b753380822\",\n  \"title\": \"Title\",\n  \"description\": \"Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8edfc2692fa5b753380820\",\n    \"name\": \"Ad Author Name\",\n    \"email\": \"email1@example.com\",\n    \"createdAt\": \"2019-03-18T00:01:06.264Z\"\n  },\n  \"createdAt\": \"2019-03-18T00:01:44.569Z\",\n  \"purchasedBy\": {\n    \"_id\": \"5c8ee053692fa5b753380823\",\n    \"ad\": \"5c8edfe8692fa5b753380822\",\n    \"message\": \"Message\",\n    \"author\": {\n      \"_id\": \"5c8edfcd692fa5b753380821\",\n      \"name\": \"Purchase Author Name\",\n      \"email\": \"email2@example.com\",\n      \"createdAt\": \"2019-03-18T00:01:17.080Z\"\n    },\n    \"createdAt\": \"2019-03-18T00:03:31.824Z\"\n  }\n}\n```",
 			"headers": [],
 			"isPrivate": false,
 			"metaSortKey": -1552790690874,
 			"method": "GET",
-			"modified": 1552848815720,
+			"modified": 1552867813545,
 			"name": "[PRIVATE] Show",
 			"parameters": [],
 			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",
@@ -207,7 +207,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ BASE_URL  }}/ads/5c8dd6c1406bff71bc613935",
+			"url": "{{ BASE_URL  }}/ads/5c8edfe8692fa5b753380822",
 			"_type": "request"
 		},
 		{
@@ -221,7 +221,7 @@
 				"text": "{\n \"title\": \"Title\",\n \"description\": \"Description\",\n \"price\": 0\n}"
 			},
 			"created": 1552790738123,
-			"description": "**[POST]** /ads\n--\n**Response:** Status 201 Created\n\nRequest Body Model\n--\n>**title (String)**  \n>**required:** true  \n\n>**description (String)**  \n>**required:** true  \n\n>**price (Number)**  \n>**required:** true  \n\n```json\n{\n \"title\": \"Title\",\n \"description\": \"Description\",\n \"price\": 0\n}\n```\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8dd6c1406bff71bc613935\",\n  \"title\": \"Title\",\n  \"description\": \"Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8dd5b2406bff71bc613934\",\n    \"name\": \"Name\",\n    \"email\": \"email@example.com\",\n    \"createdAt\": \"2019-03-17T05:05:54.051Z\"\n  },\n  \"createdAt\": \"2019-03-17T05:10:25.774Z\"\n}\n```",
+			"description": "**[POST]** /ads\n--\n**Response:** Status 201 Created\n\nRequest Body Model\n--\n>**title (String)**  \n>**required:** true  \n\n>**description (String)**  \n>**required:** true  \n\n>**price (Number)**  \n>**required:** true  \n\n```json\n{\n \"title\": \"Title\",\n \"description\": \"Description\",\n \"price\": 0\n}\n```\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8edfe8692fa5b753380822\",\n  \"title\": \"Title\",\n  \"description\": \"Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8edfc2692fa5b753380820\",\n    \"name\": \"Name\",\n    \"email\": \"email@example.com\",\n    \"createdAt\": \"2019-03-18T00:01:06.264Z\"\n  },\n  \"createdAt\": \"2019-03-18T00:01:44.569Z\"\n}\n```",
 			"headers": [
 				{
 					"id": "pair_01ab219db137434c9b804945d547e098",
@@ -232,7 +232,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1552790650113,
 			"method": "POST",
-			"modified": 1552848208561,
+			"modified": 1552867751203,
 			"name": "[PRIVATE] Create",
 			"parameters": [],
 			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",
@@ -256,7 +256,7 @@
 				"text": "{\n \"title\": \"New Title\",\n \"description\": \"New Description\",\n \"price\": 0\n}"
 			},
 			"created": 1552790860129,
-			"description": "**[PUT]** /ads/:id\n--\n**Response:** Status 200 OK\n\nParams\n--\n>**id (String | ObjectId)**  \n>**required:** true  \n>**description:** the Ad id  \n\nRequest Body Model\n--\n>**title (String)**  \n>**required:** false  \n\n>**description (String)**  \n>**required:** false  \n\n>**price (Number)**  \n>**required:** false  \n\n```json\n{\n \"title\": \"New Title\",\n \"description\": \"New Description\",\n \"price\": 0\n}\n```\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8dd6c1406bff71bc613935\",\n  \"title\": \"New Title\",\n  \"description\": \"New Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8dd5b2406bff71bc613934\",\n    \"name\": \"Name\",\n    \"email\": \"email@example.com\",\n    \"createdAt\": \"2019-03-17T05:05:54.051Z\"\n  },\n  \"createdAt\": \"2019-03-17T05:10:25.774Z\"\n}\n```",
+			"description": "**[PUT]** /ads/:id\n--\n**Response:** Status 200 OK\n\nParams\n--\n>**id (String | ObjectId)**  \n>**required:** true  \n>**description:** the Ad id  \n\nRequest Body Model\n--\n>**title (String)**  \n>**required:** false  \n\n>**description (String)**  \n>**required:** false  \n\n>**price (Number)**  \n>**required:** false  \n\n```json\n{\n \"title\": \"New Title\",\n \"description\": \"New Description\",\n \"price\": 0\n}\n```\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8edfe8692fa5b753380822\",\n  \"title\": \"New Title\",\n  \"description\": \"New Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8edfc2692fa5b753380820\",\n    \"name\": \"Ad Author Name\",\n    \"email\": \"email1@example.com\",\n    \"createdAt\": \"2019-03-18T00:01:06.264Z\"\n  },\n  \"createdAt\": \"2019-03-18T00:01:44.569Z\",\n  \"purchasedBy\": {\n    \"_id\": \"5c8ee053692fa5b753380823\",\n    \"ad\": \"5c8edfe8692fa5b753380822\",\n    \"message\": \"Message\",\n    \"author\": {\n      \"_id\": \"5c8edfcd692fa5b753380821\",\n      \"name\": \"Purchase Author Name\",\n\t    \"email\": \"email2@example.com\",\n      \"createdAt\": \"2019-03-18T00:01:17.080Z\"\n    },\n    \"createdAt\": \"2019-03-18T00:03:31.824Z\"\n  }\n}\n```",
 			"headers": [
 				{
 					"id": "pair_23030ef2a3c14a8f86845114aea8075a",
@@ -267,7 +267,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1552790650088,
 			"method": "PUT",
-			"modified": 1552849550901,
+			"modified": 1552867999880,
 			"name": "[PRIVATE] Update",
 			"parameters": [],
 			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",
@@ -277,7 +277,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ BASE_URL  }}/ads/5c8dd6c1406bff71bc613935",
+			"url": "{{ BASE_URL  }}/ads/5c8edfe8692fa5b753380822",
 			"_type": "request"
 		},
 		{
@@ -293,7 +293,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1552790650063,
 			"method": "DELETE",
-			"modified": 1552848772885,
+			"modified": 1552851857756,
 			"name": "[PRIVATE] Delete",
 			"parameters": [],
 			"parentId": "fld_a00972cd29dd45028ac78a0dda814a9d",
@@ -314,10 +314,10 @@
 			},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n  \"ad\": \"5c8db75daf943e698707b7ce\",\n  \"message\": \"Message\"\n}"
+				"text": "{\n  \"ad\": \"5c8eb80928e5fea73f236b4f\",\n  \"message\": \"Message\"\n}"
 			},
 			"created": 1552804656744,
-			"description": "**[POST]** /purchases\n--\n**Response:** Status 204 No Content\n\nRequest Body Model\n--\n>**ad (String | ObjectId)**  \n>**required:** true  \n>**description:** the Ad id  \n\n>**message (String)**  \n>**required:** true  \n\n```json\n{\n  \"ad\": \"5c8db75daf943e698707b7ce\",\n  \"message\": \"Message\"\n}\n```\n\nResponse Payload Model\n--\n*No body returned for response*",
+			"description": "**[POST]** /purchases\n--\n**Response:** Status 200 OK\n\nRequest Body Model\n--\n>**ad (String | ObjectId)**  \n>**required:** true  \n>**description:** the Ad id  \n\n>**message (String)**  \n>**required:** true  \n\n```json\n{\n  \"ad\": \"5c8db75daf943e698707b7ce\",\n  \"message\": \"Message\"\n}\n```\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8ed74a3001e0b370abd241\",\n  \"ad\": {\n    \"_id\": \"5c8eb80928e5fea73f236b4f\",\n    \"title\": \"Title\",\n    \"description\": \"Description\",\n    \"price\": 0,\n    \"author\": {\n      \"_id\": \"5c8dd5b2406bff71bc613934\",\n      \"name\": \"Ad Author Name\",\n      \"email\": \"email1@example.com\",\n      \"createdAt\": \"2019-03-17T05:05:54.051Z\"\n    },\n    \"createdAt\": \"2019-03-17T21:11:37.150Z\"\n  },\n  \"message\": \"Message\",\n  \"author\": {\n    \"_id\": \"5c8dd5b2406bff71bc613934\",\n    \"name\": \"Purchase Author Name\",\n    \"email\": \"email2@example.com\",\n    \"createdAt\": \"2019-03-17T05:05:54.051Z\"\n  },\n  \"createdAt\": \"2019-03-17T23:24:58.962Z\"\n}\n```",
 			"headers": [
 				{
 					"id": "pair_ff01f4e49129465081c8fc6a9c3d1119",
@@ -326,9 +326,9 @@
 				}
 			],
 			"isPrivate": false,
-			"metaSortKey": -1552804656744,
+			"metaSortKey": -1552804656844,
 			"method": "POST",
-			"modified": 1552849527942,
+			"modified": 1552868331665,
 			"name": "[PRIVATE] Create",
 			"parameters": [],
 			"parentId": "fld_9c39a83c7ad9491b9d7dcccc03addde3",
@@ -339,6 +339,32 @@
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
 			"url": "{{ BASE_URL  }}/purchases",
+			"_type": "request"
+		},
+		{
+			"_id": "req_d343c9b7183f4c5bb6ecd189f6ab507c",
+			"authentication": {
+				"token": "{{ token  }}",
+				"type": "bearer"
+			},
+			"body": {},
+			"created": 1552864793801,
+			"description": "**[POST]** /purchases/sale/:id\n--\n**Response:** Status 200 OK\n\nParams\n--\n>**id (String | ObjectId)**  \n>**required:** true  \n>**description:** the Purchase id  \n\nRequest Body Model\n--\n*No body needed for request*\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8edfe8692fa5b753380822\",\n  \"title\": \"Title\",\n  \"description\": \"Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8edfc2692fa5b753380820\",\n    \"name\": \"Ad Author Name\",\n    \"email\": \"email1@example.com\",\n    \"createdAt\": \"2019-03-18T00:01:06.264Z\"\n  },\n  \"createdAt\": \"2019-03-18T00:01:44.569Z\",\n  \"purchasedBy\": {\n    \"_id\": \"5c8ee053692fa5b753380823\",\n    \"ad\": \"5c8edfe8692fa5b753380822\",\n    \"message\": \"Message\",\n    \"author\": {\n      \"_id\": \"5c8edfcd692fa5b753380821\",\n      \"name\": \"Purchase Author Name\",\n      \"email\": \"email2@example.com\",\n      \"createdAt\": \"2019-03-18T00:01:17.080Z\"\n    },\n    \"createdAt\": \"2019-03-18T00:03:31.824Z\"\n  }\n}\n```",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1552804656794,
+			"method": "POST",
+			"modified": 1552868288140,
+			"name": "[PRIVATE] Sale",
+			"parameters": [],
+			"parentId": "fld_9c39a83c7ad9491b9d7dcccc03addde3",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ BASE_URL  }}/purchases/sale/5c8ee053692fa5b753380823",
 			"_type": "request"
 		}
 	]

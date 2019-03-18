@@ -2,6 +2,7 @@ const Joi = require('joi')
 
 const list = {
   query: {
+    includePurchased: Joi.boolean(),
     page: Joi.number(),
     pageSize: Joi.number(),
     minPrice: Joi.number(),

@@ -65,4 +65,11 @@ routes.post(
   handle(controllers.PurchaseController.create)
 )
 
+/** Purchases/Sale **/
+routes.post(
+  '/purchases/sale/:id',
+  validate(validators.General.idParam),
+  handle(controllers.PurchaseController.sale)
+)
+
 module.exports = routes
