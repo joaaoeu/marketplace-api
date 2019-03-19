@@ -181,7 +181,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ BASE_URL  }}/ads?includePurchased=true",
+			"url": "{{ BASE_URL  }}/ads",
 			"_type": "request"
 		},
 		{
