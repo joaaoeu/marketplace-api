@@ -26,10 +26,16 @@ class App {
   }
 
   database () {
-    mongoose.connect(databaseConfig.uri, {
-      useCreateIndex: true,
-      useNewUrlParser: true
-    })
+    mongoose.connect(
+      databaseConfig.uri,
+      {
+        useCreateIndex: true,
+        useNewUrlParser: true
+      },
+      err => {
+        if (err) console.warn('### Connection to MongoDB failed ###\n' + err)
+      }
+    )
   }
 
   middlewares () {
