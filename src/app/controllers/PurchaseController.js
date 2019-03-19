@@ -36,7 +36,7 @@ class PurchaseController {
     return res.status(200).send(purchase)
   }
 
-  async sale (req, res) {
+  async approve (req, res) {
     const purchase = await Purchase.findById(req.params.id).populate([
       { path: 'ad', populate: { path: 'author' } },
       'author'

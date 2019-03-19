@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2019-03-18T00:19:58.259Z",
+	"__export_date": "2019-03-19T00:36:43.037Z",
 	"__export_source": "insomnia.desktop.app:v6.3.2",
 	"resources": [
 		{
@@ -349,13 +349,13 @@
 			},
 			"body": {},
 			"created": 1552864793801,
-			"description": "**[POST]** /purchases/sale/:id\n--\n**Response:** Status 200 OK\n\nParams\n--\n>**id (String | ObjectId)**  \n>**required:** true  \n>**description:** the Purchase id  \n\nRequest Body Model\n--\n*No body needed for request*\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8edfe8692fa5b753380822\",\n  \"title\": \"Title\",\n  \"description\": \"Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8edfc2692fa5b753380820\",\n    \"name\": \"Ad Author Name\",\n    \"email\": \"email1@example.com\",\n    \"createdAt\": \"2019-03-18T00:01:06.264Z\"\n  },\n  \"createdAt\": \"2019-03-18T00:01:44.569Z\",\n  \"purchasedBy\": {\n    \"_id\": \"5c8ee053692fa5b753380823\",\n    \"ad\": \"5c8edfe8692fa5b753380822\",\n    \"message\": \"Message\",\n    \"author\": {\n      \"_id\": \"5c8edfcd692fa5b753380821\",\n      \"name\": \"Purchase Author Name\",\n      \"email\": \"email2@example.com\",\n      \"createdAt\": \"2019-03-18T00:01:17.080Z\"\n    },\n    \"createdAt\": \"2019-03-18T00:03:31.824Z\"\n  }\n}\n```",
+			"description": "**[POST]** /purchases/approve/:id\n--\n**Response:** Status 200 OK\n\nParams\n--\n>**id (String | ObjectId)**  \n>**required:** true  \n>**description:** the Purchase id  \n\nRequest Body Model\n--\n*No body needed for request*\n\nResponse Payload Model\n--\n```json\n{\n  \"_id\": \"5c8edfe8692fa5b753380822\",\n  \"title\": \"Title\",\n  \"description\": \"Description\",\n  \"price\": 0,\n  \"author\": {\n    \"_id\": \"5c8edfc2692fa5b753380820\",\n    \"name\": \"Ad Author Name\",\n    \"email\": \"email1@example.com\",\n    \"createdAt\": \"2019-03-18T00:01:06.264Z\"\n  },\n  \"createdAt\": \"2019-03-18T00:01:44.569Z\",\n  \"purchasedBy\": {\n    \"_id\": \"5c8ee053692fa5b753380823\",\n    \"ad\": \"5c8edfe8692fa5b753380822\",\n    \"message\": \"Message\",\n    \"author\": {\n      \"_id\": \"5c8edfcd692fa5b753380821\",\n      \"name\": \"Purchase Author Name\",\n      \"email\": \"email2@example.com\",\n      \"createdAt\": \"2019-03-18T00:01:17.080Z\"\n    },\n    \"createdAt\": \"2019-03-18T00:03:31.824Z\"\n  }\n}\n```",
 			"headers": [],
 			"isPrivate": false,
 			"metaSortKey": -1552804656794,
 			"method": "POST",
-			"modified": 1552868288140,
-			"name": "[PRIVATE] Sale",
+			"modified": 1552955759139,
+			"name": "[PRIVATE] Approve",
 			"parameters": [],
 			"parentId": "fld_9c39a83c7ad9491b9d7dcccc03addde3",
 			"settingDisableRenderRequestBody": false,
@@ -364,7 +364,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ BASE_URL  }}/purchases/sale/5c8ee053692fa5b753380823",
+			"url": "{{ BASE_URL  }}/purchases/approve/5c8ee053692fa5b753380823",
 			"_type": "request"
 		}
 	]

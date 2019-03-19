@@ -65,11 +65,10 @@ routes.post(
   handle(controllers.PurchaseController.create)
 )
 
-/** Purchases/Sale **/
 routes.post(
-  '/purchases/sale/:id',
+  '/purchases/approve/:id',
   validate(validators.General.idParam),
-  handle(controllers.PurchaseController.sale)
+  handle(controllers.PurchaseController.approve)
 )
 
 module.exports = routes
