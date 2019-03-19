@@ -9,9 +9,12 @@ class PurchaseController {
     const { ad, message } = req.body
 
     const purchaseAd = await Ad.findById(ad).populate('author')
-    const user = await User.findById(req.userId)
 
-    if (purchaseAd.author.id.equals(req.userId)) {
+    if (!purchaseAd) {
+      return res.status(400).json({ error: "This Ad doesn't exist!" })
+    }
+
+    if (purchaseAd.author._id.equals(req.userId)) {
       return res
         .status(400)
         .json({ error: "You can't sell your Ad to yourself." })
@@ -21,6 +24,16 @@ class PurchaseController {
       return res.status(400).json({ error: 'This Ad is already purchased.' })
     }
 
+    const hasPurchase = await Purchase.findOne({ ad, author: req.userId })
+
+    if (hasPurchase) {
+      return res.status(400).json({
+        error:
+          "You can't do a Purchase Solicitation of an Ad that you already solicit!"
+      })
+    }
+
+    const user = await User.findById(req.userId)
     const purchase = await Purchase.create({ ...req.body, author: req.userId })
     await Purchase.populate(purchase, [
       { path: 'ad', populate: { path: 'author' } },
@@ -42,16 +55,21 @@ class PurchaseController {
       'author'
     ])
 
-    if (!purchase.ad.author.id.equals(req.userId)) {
+    if (!purchase) {
+      return res.status(400).json({ error: "This Purchase doesn't exist!" })
+    }
+
+    if (!purchase.ad.author._id.equals(req.userId)) {
       return res
         .status(400)
-        .json({ error: "You can't sell someone else's ad." })
+        .json({ error: "You can't approve a Purchase of someone else's ad." })
     }
 
     if (purchase.ad.purchasedBy) {
-      return res
-        .status(400)
-        .json({ error: "You can't sell a Ad that has already been sold." })
+      return res.status(400).json({
+        error:
+          "You can't approve a Purchase of an Ad that has already been sold."
+      })
     }
 
     const ad = await Ad.findByIdAndUpdate(

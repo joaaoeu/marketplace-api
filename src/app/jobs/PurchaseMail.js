@@ -11,7 +11,7 @@ class PurchaseMail {
     await Mail.sendMail({
       from: '"Marketplace" <no-reply@marketplace.com>',
       to: ad.author.email,
-      subject: `Solicitação de compra: ${ad.title}`,
+      subject: `Purchase Solicitation: ${ad.title}`,
       template: 'purchase',
       context: { ad, user, message }
     })

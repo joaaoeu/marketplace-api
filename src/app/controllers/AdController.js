@@ -34,6 +34,9 @@ class AdController {
       'author',
       { path: 'purchasedBy', populate: { path: 'author' } }
     ])
+
+    if (!ad) return res.status(400).json({ error: "This Ad doesn't exist!" })
+
     return res.status(200).json(ad)
   }
 
@@ -44,17 +47,39 @@ class AdController {
   }
 
   async update (req, res) {
-    const ad = await Ad.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
-    }).populate([
+    const ad = await Ad.findOneAndUpdate(
+      {
+        _id: req.params.id,
+        author: req.userId
+      },
+      req.body,
+      { new: true }
+    ).populate([
       'author',
       { path: 'purchasedBy', populate: { path: 'author' } }
     ])
+
+    if (!ad) {
+      return res
+        .status(400)
+        .json({ error: "This Ad isn't yours or doesn't exist!" })
+    }
+
     return res.status(200).json(ad)
   }
 
   async delete (req, res) {
-    await Ad.findByIdAndDelete(req.params.id)
+    const deletedAd = await Ad.findOneAndDelete({
+      _id: req.params.id,
+      author: req.userId
+    })
+
+    if (!deletedAd) {
+      return res
+        .status(400)
+        .json({ error: "This Ad isn't yours or doesn't exist!" })
+    }
+
     return res.status(204).send()
   }
 }
