@@ -2,6 +2,10 @@
 
 A Marketplace REST Api developed in NodeJS.
 
+### Docs
+
+If you wanna the API docs, import [insomnia.json](https://raw.githubusercontent.com/joaaoeu/marketplace-api/master/insomnia.json) in [Insomnia REST Client](https://insomnia.rest/).
+
 ## How to run
 
 ### Prerequisites
